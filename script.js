@@ -36,9 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   const projects = [
-    { id:1, title:'Site vitrine', desc:'Site responsive créé avec HTML/CSS et optimisation SEO.', tech:'HTML · CSS', link:'#' },
-    { id:2, title:'Todo App', desc:'Application vanilla JS avec stockage local et tests unitaires.', tech:'JavaScript', link:'#' },
-    { id:3, title:'Dashboard', desc:'Prototype UI réactif et accessible.', tech:'Design · UX', link:'#' },
+    { id:1, title:'TERMINA RPG', desc:'Un RPG textuel dans un univers fantastique, développé en Go.', tech:'GOLANG', link:'https://github.com/ANome1/projet-red_TERMINA_RPG' },
   ];
 
 
