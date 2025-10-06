@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Portfolio — projets, compétences et contact." />
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <h1 class="brand">Mon Portfolio</h1>
+
+            <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Ouvrir le menu">
+                ☰
+            </button>
+
+            <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="accueil" class="hero">
+            <div class="container">
+                <h2>Bonjour je suis Nomenafitia Andry, alias Pretty Flacko</h2>
+                <p class="lead">Je suis étudiant en informatique. Découvrez mes projets et compétences.</p>
+                <a class="cta" href="#projets">Voir mes projets</a>
+            </div>
+        </section>
+
+        <section id="apropos" class="container about">
+            <h2>À propos</h2>
+            <p>Quelques mots sur moi : passionné par le monde numérique. J'aime résoudre les problèmes et apprendre de nouvelles technologies.</p>
+            <ul class="skills">
+                <li>HTML &amp; CSS</li>
+                <li>JavaScript moderne</li>
+                <li>React / Vue (bases)</li>
+                <li>Accessibilité & SEO</li>
+            </ul>
+        </section>
+
+        <section id="projets" class="container projects">
+            <h2>Projets</h2>
+            <div id="projects-grid" class="projects-grid" aria-live="polite">
+                <!-- Les cartes de projet sont injectées via script.js -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; <span id="year"></span> Mon Portfolio — Tous droits réservés</p>
+            <nav aria-label="Réseaux sociaux" class="social">
+                <a href="https://www.instagram.com/the_l.emon/" aria-label="Instagram">Instagram</a>
+                <a href="https://github.com/ANome1" aria-label="GitHub">GitHub</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

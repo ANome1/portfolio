@@ -1,0 +1,158 @@
+/* Variables */
+:root{
+  /* Palette inspirée de l'image (violet / magenta / indigo) */
+  --bg: #0b0720;       /* fond très sombre */
+  --card: #0f1226;     /* fond des cartes */
+  --text: #e9e6ff;     /* texte principal (clair lilas) */
+  --muted: #b9a6f5;    /* texte secondaire (lavender) */
+  --accent: #7c3aed;   /* violet profond (couleur principale) */
+  --accent-2: #ff55c8; /* magenta néon pour accents */
+  --glow: #c084fc;     /* glow doux */
+  --radius: 12px;
+  --container: 1100px;
+}
+
+/* Reset & base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* Container */
+.container{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:24px;
+}
+
+/* Header */
+.site-header{
+  background: linear-gradient(90deg, var(--accent), #4b197e);
+  color: var(--text);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.brand{font-size:1.25rem;margin:0}
+.nav-toggle{ color: var(--text); }
+
+/* Navigation */
+.main-nav ul{
+  display:flex;
+  gap:18px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.main-nav a{
+  color: rgba(233,230,255,0.95);
+  text-decoration:none;
+  font-weight:600;
+}
+.main-nav a:focus,
+.main-nav a:hover{
+  outline:2px solid rgba(192,132,252,0.14);
+  outline-offset:4px;
+  text-decoration:none;
+}
+
+/* Hero */
+.hero{
+  padding:48px 0;
+  background:transparent;
+  text-align:center;
+}
+.hero .lead{color:var(--muted);margin:12px 0 20px}
+.cta{
+  display:inline-block;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  color: #fff;
+  padding:10px 16px;
+  border-radius:10px;
+  text-decoration:none;
+  box-shadow: 0 8px 28px rgba(124,58,237,0.14), 0 0 18px rgba(255,85,200,0.06);
+}
+
+/* Sections */
+section{margin-bottom:36px}
+.about .skills{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:12px 0 0;list-style:none}
+.about .skills li{background:#eef2f2;padding:8px 12px;border-radius:999px;color:var(--muted)}
+
+/* Projects grid */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.project-card{
+  background: linear-gradient(180deg, rgba(16,14,30,0.85), rgba(20,16,36,0.92));
+  color: var(--text);
+  border-radius: var(--radius);
+  border: 1px solid rgba(124,58,237,0.06);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6), 0 0 20px rgba(124,58,237,0.03) inset;
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.project-card h3{margin:0;font-size:1.05rem}
+.project-card p{margin:0;color:var(--muted);font-size:0.95rem}
+.project-meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.badge{
+  background: rgba(200,128,252,0.08);
+  color: var(--accent);
+  padding:6px 8px;
+  border-radius:8px;
+  font-weight:700;
+}
+
+/* Contact form */
+.contact .field{display:flex;flex-direction:column;margin-bottom:12px}
+label{font-weight:600;margin-bottom:6px}
+input,textarea{
+  padding:10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+}
+input:focus,textarea:focus{
+  outline: 2px solid rgba(124,58,237,0.12);
+  box-shadow: 0 0 18px rgba(192,132,252,0.06);
+}
+
+/* Statut du formulaire */
+.form-status{ color: var(--muted); }
+
+/* Footer */
+.site-footer{
+  border-top:1px solid rgba(255,255,255,0.02);
+  color: var(--muted);
+  background:transparent;
+}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.social a{color:var(--muted);text-decoration:none;margin-left:8px}
+
+/* Responsive */
+@media (max-width:900px){
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:700px){
+  .header-inner{align-items:flex-start}
+  .nav-toggle{display:inline-block}
+  .main-nav{position:absolute;right:24px;top:64px;background:var(--card);border-radius:8px;padding:12px;box-shadow:0 8px 24px rgba(2,6,23,0.08);display:none}
+  .main-nav[aria-expanded="true"]{display:block}
+  .main-nav ul{flex-direction:column;gap:12px}
+  .projects-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
