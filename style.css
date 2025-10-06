@@ -1,18 +1,17 @@
-/* Variables */
+
 :root{
-  /* Palette inspirée de l'image (violet / magenta / indigo) */
-  --bg: #0b0720;       /* fond très sombre */
-  --card: #0f1226;     /* fond des cartes */
-  --text: #e9e6ff;     /* texte principal (clair lilas) */
-  --muted: #b9a6f5;    /* texte secondaire (lavender) */
-  --accent: #7c3aed;   /* violet profond (couleur principale) */
-  --accent-2: #ff55c8; /* magenta néon pour accents */
-  --glow: #c084fc;     /* glow doux */
+
+  --bg: #0b0720;       
+  --card: #0f1226;     
+  --text: #e9e6ff;     
+  --muted: #b9a6f5;    
+  --accent: #7c3aed;   
+  --accent-2: #ff55c8; 
+  --glow: #c084fc;     
   --radius: 12px;
   --container: 1100px;
 }
 
-/* Reset & base */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -25,14 +24,12 @@ body{
   line-height:1.45;
 }
 
-/* Container */
 .container{
   max-width:var(--container);
   margin:0 auto;
   padding:24px;
 }
 
-/* Header */
 .site-header{
   background: linear-gradient(90deg, var(--accent), #4b197e);
   color: var(--text);
@@ -46,7 +43,6 @@ body{
 .brand{font-size:1.25rem;margin:0}
 .nav-toggle{ color: var(--text); }
 
-/* Navigation */
 .main-nav ul{
   display:flex;
   gap:18px;
@@ -66,7 +62,6 @@ body{
   text-decoration:none;
 }
 
-/* Hero */
 .hero{
   padding:48px 0;
   background:transparent;
@@ -83,12 +78,10 @@ body{
   box-shadow: 0 8px 28px rgba(124,58,237,0.14), 0 0 18px rgba(255,85,200,0.06);
 }
 
-/* Sections */
 section{margin-bottom:36px}
 .about .skills{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:12px 0 0;list-style:none}
 .about .skills li{background:#eef2f2;padding:8px 12px;border-radius:999px;color:var(--muted)}
 
-/* Projects grid */
 .projects-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -116,7 +109,6 @@ section{margin-bottom:36px}
   font-weight:700;
 }
 
-/* Contact form */
 .contact .field{display:flex;flex-direction:column;margin-bottom:12px}
 label{font-weight:600;margin-bottom:6px}
 input,textarea{
@@ -131,10 +123,8 @@ input:focus,textarea:focus{
   box-shadow: 0 0 18px rgba(192,132,252,0.06);
 }
 
-/* Statut du formulaire */
 .form-status{ color: var(--muted); }
 
-/* Footer */
 .site-footer{
   border-top:1px solid rgba(255,255,255,0.02);
   color: var(--muted);
@@ -143,7 +133,6 @@ input:focus,textarea:focus{
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .social a{color:var(--muted);text-decoration:none;margin-left:8px}
 
-/* Responsive */
 @media (max-width:900px){
   .projects-grid{grid-template-columns:repeat(2,1fr)}
 }
