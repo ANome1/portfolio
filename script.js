@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const projects = [
     { id:1, title:'TERMINA RPG', desc:'Un RPG textuel dans un univers fantastique, développé en Go.', tech:'GOLANG', link:'https://github.com/ANome1/projet-red_TERMINA_RPG' },
+    { id:2, title: 'POWER 4', desc: 'Jeu de Puissance 4 en Go avec une interface web.', tech: 'GOLANG HTML CSS', link: 'https://github.com/ANome1/projet_Power4' },
   ];
 
 
