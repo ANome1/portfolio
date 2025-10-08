@@ -138,33 +138,40 @@ document.querySelector('form').addEventListener('submit', function(e) {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  // WIP modal
+  // WIP modal — affiche instantanément sur la page d'accueil (tous appareils)
   try {
     const overlay = document.getElementById('wip-modal-overlay');
     const modal = document.getElementById('wip-modal');
     const closeBtn = document.getElementById('wip-close');
     const checkbox = document.getElementById('wip-no-show');
-    const dismissed = localStorage.getItem('wip-dismissed') === '1';
 
     function showWip() {
-      if (!modal || dismissed) return;
-      overlay.classList.remove('wip-hidden'); overlay.setAttribute('aria-hidden','false');
+      if (!modal || !overlay) return;
+      overlay.classList.remove('wip-hidden');
+      overlay.setAttribute('aria-hidden', 'false');
       modal.classList.remove('wip-hidden');
-      modal.focus?.();
+      modal.setAttribute('aria-hidden', 'false');
+      closeBtn?.focus();
     }
     function hideWip(save) {
-      if (!modal) return;
-      overlay.classList.add('wip-hidden'); overlay.setAttribute('aria-hidden','true');
+      if (!modal || !overlay) return;
+      overlay.classList.add('wip-hidden');
+      overlay.setAttribute('aria-hidden', 'true');
       modal.classList.add('wip-hidden');
-      if (save && checkbox && checkbox.checked) localStorage.setItem('wip-dismissed','1');
+      modal.setAttribute('aria-hidden', 'true');
+      if (save && checkbox && checkbox.checked) {
+        localStorage.setItem('wip-dismissed', '1');
+      }
     }
 
-    if (modal && closeBtn && overlay) {
-      // show after a short delay so it n'affiche pas trop brusquement
-      if (!dismissed) setTimeout(showWip, 600);
-      closeBtn.addEventListener('click', function () { hideWip(true); });
-      overlay.addEventListener('click', function () { hideWip(false); });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hideWip(false); });
+    // détecte page d'accueil et affiche immédiatement
+    const p = location.pathname || '/';
+    const isHome = p === '/' || p.endsWith('/index.html') || p === '';
+    if (isHome && modal && overlay && closeBtn) {
+      showWip(); // affichage instant
+      closeBtn.addEventListener('click', () => hideWip(true));
+      overlay.addEventListener('click', () => hideWip(false));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideWip(false); });
     }
   } catch (e) { /* silent fail */ }
 
