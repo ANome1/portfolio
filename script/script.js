@@ -138,59 +138,33 @@ document.querySelector('form').addEventListener('submit', function(e) {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  // WIP modal — affiche instantanément sur la page d'accueil (tous appareils)
   try {
     const overlay = document.getElementById('wip-modal-overlay');
     const modal = document.getElementById('wip-modal');
     const closeBtn = document.getElementById('wip-close');
     const checkbox = document.getElementById('wip-no-show');
 
-    function showWip() {
-      if (!modal || !overlay) return;
+    if (overlay && modal && closeBtn) {
+      // affichage instantané, partout
       overlay.classList.remove('wip-hidden');
       overlay.setAttribute('aria-hidden', 'false');
       modal.classList.remove('wip-hidden');
       modal.setAttribute('aria-hidden', 'false');
-      closeBtn?.focus();
+      closeBtn.focus();
+
+      const hide = (save) => {
+        overlay.classList.add('wip-hidden');
+        overlay.setAttribute('aria-hidden', 'true');
+        modal.classList.add('wip-hidden');
+        modal.setAttribute('aria-hidden', 'true');
+        if (save && checkbox && checkbox.checked) localStorage.setItem('wip-dismissed','1');
+      };
+
+      closeBtn.addEventListener('click', () => hide(true));
+      overlay.addEventListener('click', () => hide(false));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hide(false); });
     }
-    function hideWip(save) {
-      if (!modal || !overlay) return;
-      overlay.classList.add('wip-hidden');
-      overlay.setAttribute('aria-hidden', 'true');
-      modal.classList.add('wip-hidden');
-      modal.setAttribute('aria-hidden', 'true');
-      if (save && checkbox && checkbox.checked) {
-        localStorage.setItem('wip-dismissed', '1');
-      }
-    }
-
-    // détecte page d'accueil et affiche immédiatement
-    const p = location.pathname || '/';
-    const isHome = p === '/' || p.endsWith('/index.html') || p === '';
-    if (isHome && modal && overlay && closeBtn) {
-      showWip(); // affichage instant
-      closeBtn.addEventListener('click', () => hideWip(true));
-      overlay.addEventListener('click', () => hideWip(false));
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideWip(false); });
-    }
-  } catch (e) { /* silent fail */ }
-
-  const btn = document.querySelector('.nav-toggle');
-  const headerInner = document.querySelector('.header-inner');
-  const nav = document.getElementById('main-nav');
-
-  if (btn && headerInner && nav) {
-    // initialise aria si absent
-    if (!btn.hasAttribute('aria-expanded')) btn.setAttribute('aria-expanded', 'false');
-
-    btn.addEventListener('click', function () {
-      const opened = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!opened));
-      headerInner.classList.toggle('nav-open', !opened);
-    });
+  } catch (err) {
+    console.error('WIP modal error:', err);
   }
-
-  // garde l'ancien code (ex: année dans le footer)
-  const yEl = document.getElementById('year');
-  if (yEl) yEl.textContent = new Date().getFullYear();
 });
