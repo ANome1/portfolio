@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
   const $ = sel => document.querySelector(sel);
@@ -93,6 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+});
+
+
+// met à jour l'année dans le footer
+document.addEventListener('DOMContentLoaded', function () {
+  const y = new Date().getFullYear();
+  const el = document.getElementById('year');
+  if (el) el.textContent = y;
 });
 
 

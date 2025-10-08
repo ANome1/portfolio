@@ -136,11 +136,33 @@ input:focus,textarea:focus{
 .logo{
   width:56px;
   height:56px;
-  border-radius:0;           
+  border-radius:0;       /* plus de cercle */
+  object-fit:contain;
+  border: none;
+  box-shadow: none;
+  margin-right:12px;
   flex-shrink:0;
 }
 
+.avatar{
+  display:block;
+  object-fit:cover;
+  border: 2px solid rgba(255,255,255,0.06);
+  box-shadow: 0 8px 22px rgba(2,6,23,0.35);
+}
 
+.avatar-hero{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  margin:0 auto 18px;
+  display:block;
+}
+
+/* ajustements responsive */
+@media (max-width:700px){
+  .avatar-hero{ width:88px; height:88px; margin-bottom:12px; }
+}
 @media (max-width:700px){
   .logo{ width:44px; height:44px; margin-right:8px; }
   .header-inner{ align-items:flex-start }
