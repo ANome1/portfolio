@@ -99,7 +99,7 @@ body{
 
 section{margin-bottom:36px}
 .about .skills{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:12px 0 0;list-style:none}
-.about .skills li{background:#eef2f2;padding:8px 12px;border-radius:999px;color:var(--muted)}
+.about .skills li{background:#eef2f2;padding:8px 12px;border-radius:999px;color:var(--muted); color: rgba(16,14,30,0.85);font-weight: bolder;}
 
 .projects-grid{
   display:grid;
