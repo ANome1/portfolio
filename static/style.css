@@ -11,6 +11,7 @@
   --container: 1100px;
 }
 
+
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -132,20 +133,20 @@ input:focus,textarea:focus{
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .social a{color:var(--muted);text-decoration:none;margin-left:8px}
 
-.avatar{
+.logo{
   width:56px;
   height:56px;
-  border-radius:50%;
-  object-fit:cover;
-  border: 2px solid rgba(255,255,255,0.06);
-  box-shadow: 0 6px 18px rgba(124,58,237,0.12);
+  border-radius:0;       /* plus de cercle */
+  object-fit:contain;    /* affiche l'image entière */
+  border: none;          /* supprime la bordure circulaire */
+  box-shadow: none;      /* supprime l'ombre si souhaité */
   margin-right:12px;
   flex-shrink:0;
 }
 
 /* Ajustement pour petits écrans */
 @media (max-width:700px){
-  .avatar{ width:44px; height:44px; margin-right:8px; }
+  .logo{ width:44px; height:44px; margin-right:8px; }
   .header-inner{ align-items:flex-start }
 }
 
@@ -168,4 +169,5 @@ button{
   border:none;
   background:none;
   padding:0;
+  align-self: center;
 }
