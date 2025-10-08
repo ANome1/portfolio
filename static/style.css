@@ -2,15 +2,15 @@
    VARIABLES CSS
    ======================================== */
 :root {
-  --bg: #0b0720;       
-  --card: #0f1226;     
-  --text: #e9e6ff;     
-  --muted: #b9a6f5;    
-  --accent: #7c3aed;   
-  --accent-2: #ff55c8; 
-  --glow: #c084fc;     
-  --radius: 12px;
-  --container: 1100px;
+    --bg: #1a1b3a;          /* Background plus clair */
+    --card: #252659;        /* Cards plus claires */
+    --text: #f1f0ff;        /* Texte plus contrasté */
+    --muted: #c9bcf7;       /* Texte secondaire plus visible */
+    --accent: #8b5cf6;      /* Accent violet plus doux */
+    --accent-2: #ff6bcf;    /* Accent rose plus doux */
+    --glow: #d8b4fe;        /* Glow plus visible */
+    --radius: 12px;
+    --container: 1100px;
 }
 
 /* ========================================
