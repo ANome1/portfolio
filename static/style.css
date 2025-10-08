@@ -45,6 +45,20 @@ body{
   justify-content:space-between;
   gap:16px;
 }
+/* nouveau : grouper logo + titre pour alignement propre */
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* optionnel : garder le bouton de menu aligné à droite */
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
 .brand{font-size:1.25rem;margin:0}
 .nav-toggle{ color: var(--text); }
 
