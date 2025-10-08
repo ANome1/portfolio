@@ -200,6 +200,55 @@ input:focus,textarea:focus{
   .footer-inner{flex-direction:column;align-items:flex-start}
 }
 
+/* meilleur comportement header sur petits écrans */
+@media (max-width:700px){
+  .header-inner{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+  }
+
+  /* garde logo + titre sur une ligne, bouton à droite */
+  .header-left{
+    width:100%;
+    display:flex;
+    justify-content:space-between; /* logo + brand à gauche, bouton possible à droite */
+    align-items:center;
+    gap:12px;
+  }
+
+  .header-right{ order:2; }
+
+  /* navigation devient pleine largeur sous le header */
+  .main-nav{
+    order:3;
+    width:100%;
+    display:none;            /* cachée tant que le menu n'est pas ouvert */
+    margin-top:8px;
+  }
+  .main-nav ul{
+    flex-direction:column;
+    gap:10px;
+    padding:10px 0;
+    margin:0;
+  }
+  .main-nav a{
+    display:block;
+    padding:8px 12px;
+    border-radius:8px;
+  }
+
+  /* classe contrôlée par le JS pour afficher le menu */
+  .header-inner.nav-open .main-nav{
+    display:block;
+  }
+
+  /* petite adaptation des éléments du header */
+  .logo{ width:44px; height:44px; }
+  .brand{ font-size:1rem; }
+}
+
 button{
   cursor:pointer;
   font:inherit;

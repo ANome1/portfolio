@@ -96,9 +96,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // met à jour l'année dans le footer
 document.addEventListener('DOMContentLoaded', function () {
-  const y = new Date().getFullYear();
-  const el = document.getElementById('year');
-  if (el) el.textContent = y;
+  const btn = document.querySelector('.nav-toggle');
+  const headerInner = document.querySelector('.header-inner');
+  const nav = document.getElementById('main-nav');
+
+  if (btn && headerInner && nav) {
+    // initialise aria si absent
+    if (!btn.hasAttribute('aria-expanded')) btn.setAttribute('aria-expanded', 'false');
+
+    btn.addEventListener('click', function () {
+      const opened = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!opened));
+      headerInner.classList.toggle('nav-open', !opened);
+    });
+  }
+
+  // garde l'ancien code (ex: année dans le footer)
+  const yEl = document.getElementById('year');
+  if (yEl) yEl.textContent = new Date().getFullYear();
 });
 
 
