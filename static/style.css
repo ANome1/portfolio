@@ -136,15 +136,11 @@ input:focus,textarea:focus{
 .logo{
   width:56px;
   height:56px;
-  border-radius:0;       /* plus de cercle */
-  object-fit:contain;    /* affiche l'image entière */
-  border: none;          /* supprime la bordure circulaire */
-  box-shadow: none;      /* supprime l'ombre si souhaité */
-  margin-right:12px;
+  border-radius:0;           
   flex-shrink:0;
 }
 
-/* Ajustement pour petits écrans */
+
 @media (max-width:700px){
   .logo{ width:44px; height:44px; margin-right:8px; }
   .header-inner{ align-items:flex-start }
