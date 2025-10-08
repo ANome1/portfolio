@@ -135,3 +135,55 @@ document.querySelector('form').addEventListener('submit', function(e) {
     alert('Merci pour votre message !');
     this.reset();
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  // WIP modal
+  try {
+    const overlay = document.getElementById('wip-modal-overlay');
+    const modal = document.getElementById('wip-modal');
+    const closeBtn = document.getElementById('wip-close');
+    const checkbox = document.getElementById('wip-no-show');
+    const dismissed = localStorage.getItem('wip-dismissed') === '1';
+
+    function showWip() {
+      if (!modal || dismissed) return;
+      overlay.classList.remove('wip-hidden'); overlay.setAttribute('aria-hidden','false');
+      modal.classList.remove('wip-hidden');
+      modal.focus?.();
+    }
+    function hideWip(save) {
+      if (!modal) return;
+      overlay.classList.add('wip-hidden'); overlay.setAttribute('aria-hidden','true');
+      modal.classList.add('wip-hidden');
+      if (save && checkbox && checkbox.checked) localStorage.setItem('wip-dismissed','1');
+    }
+
+    if (modal && closeBtn && overlay) {
+      // show after a short delay so it n'affiche pas trop brusquement
+      if (!dismissed) setTimeout(showWip, 600);
+      closeBtn.addEventListener('click', function () { hideWip(true); });
+      overlay.addEventListener('click', function () { hideWip(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hideWip(false); });
+    }
+  } catch (e) { /* silent fail */ }
+
+  const btn = document.querySelector('.nav-toggle');
+  const headerInner = document.querySelector('.header-inner');
+  const nav = document.getElementById('main-nav');
+
+  if (btn && headerInner && nav) {
+    // initialise aria si absent
+    if (!btn.hasAttribute('aria-expanded')) btn.setAttribute('aria-expanded', 'false');
+
+    btn.addEventListener('click', function () {
+      const opened = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!opened));
+      headerInner.classList.toggle('nav-open', !opened);
+    });
+  }
+
+  // garde l'ancien code (ex: année dans le footer)
+  const yEl = document.getElementById('year');
+  if (yEl) yEl.textContent = new Date().getFullYear();
+});
