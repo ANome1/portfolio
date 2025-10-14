@@ -329,7 +329,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const projects = [
     { id:1, title:'TERMINA RPG', desc:'Un RPG textuel dans un univers fantastique, développé en Go.', tech:'GOLANG', link:'https://github.com/ANome1/projet-red_TERMINA_RPG' },
-    { id:2, title: 'POWER 4', desc: 'Jeu de Puissance 4 en Go avec une interface web.', tech: 'GOLANG, HTML & CSS', link: 'https://github.com/ANome1/projet_Power4' },
+    { 
+      id:2, 
+      title: 'POWER 4', 
+      desc: 'Jeu de Puissance 4 en Go avec une interface web.', 
+      tech: 'GOLANG, HTML & CSS', 
+      github: 'https://github.com/ANome1/projet_Power4',
+      demo: 'https://power4.prettyflacko.fr/'
+    },
   ];
 
   const grid = $('#projects-grid');
@@ -340,7 +347,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <p>${escapeHtml(p.desc)}</p>
         <div class="project-meta">
           <span class="badge">${escapeHtml(p.tech)}</span>
-          <a href="${escapeHtml(p.link)}" target="_blank" rel="noopener">Voir →</a>
+          <div class="project-links">
+            ${p.github ? `<a href="${escapeHtml(p.github)}" target="_blank" rel="noopener">GitHub →</a>` : ''}
+            ${p.demo ? `<a href="${escapeHtml(p.demo)}" target="_blank" rel="noopener">Demo →</a>` : ''}
+            ${p.link && !p.github ? `<a href="${escapeHtml(p.link)}" target="_blank" rel="noopener">Voir →</a>` : ''}
+          </div>
         </div>
       </div>
     `).join('');
@@ -362,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
   try {
     const overlay = $('#wip-modal-overlay');
     const modal = $('#wip-modal');
-    const closeBtn = $('#wip-close');
+    const closeBtn = $('#wip_close');
     const checkbox = $('#wip-no-show');
 
     if (overlay && modal && closeBtn) {
